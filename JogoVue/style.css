@@ -1,0 +1,128 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+}
+
+#fundo{
+    background-image: url("img/fundo02.jpg");
+    background-size: cover; /* faz a imagem cobrir todo o fundo */
+    background-position: center; /* centraliza a imagem */
+    background-repeat: no-repeat; /* evita a repetição da imagem */
+}
+
+#app {
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
+}
+
+.personagemHeroi {
+    background-color: #bca6e5;
+    border: 2px solid #000000;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    padding: 10px;
+    width: 200px;
+}
+
+.personagemVilao {
+    background-color: #a6e5b1;
+    border: 2px solid #000000;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    padding: 10px;
+    width: 200px;
+}
+.acoes {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+}
+
+button {
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    background-color: #73295c;
+    color: whitesmoke;
+    cursor: pointer;
+    transition: background-color 0.5s, transform 0.2s;
+    border: 1px solid #000000;
+}
+
+button:hover {
+    background-color: #3d0525;
+    transform: translateY(-3px);
+}
+
+button:active {
+    transform: translateY(0px);
+}
+
+.barra-vida {
+    height: 32px;
+    background-color: #4CAF50;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border-radius: 5px;
+    margin-bottom: 16px;
+    border: 1px solid #000000;
+}
+
+.sprite {
+    height: 160px;
+    background-color: #ddd;
+    width: 200px;
+    border: 1px solid #000000;
+}
+
+.registro-acoes {
+    position:fixed; /* Para manter a caixa fixa na tela */
+    top: 16%; /* Ajuste conforme necessário para a posição vertical */
+    right: 5%; /* Ajuste conforme necessário para a posição horizontal */
+    width: 20%; /* Largura da caixa */
+    background-color:#a6c1e5; /* Cor de fundo */
+    border: 2px solid rgb(0, 0, 0); /* Borda da caixa */
+    border-radius: 5px;
+    padding: 1%; /* Espaçamento interno */
+    overflow-y: auto; /* Adiciona barra de rolagem vertical quando necessário */
+    max-height: 40%; /* Defina a altura máxima desejada para o contêiner */
+    width: 24%;
+    text-align: left;
+}
+
+.registro-acoes h2 {
+    margin-top: 0; /* Remover margem superior do título */
+}
+
+.registro-acoes ul {
+    list-style-type: none; /* Remover estilos padrão de lista */
+    padding: 0; /* Remover preenchimento interno */
+}
+
+.registro-acoes li {
+    margin-bottom: 2%; /* Espaçamento entre itens da lista */
+}
+
+.aviso {
+    position: fixed; /* Para manter o aviso fixo na tela */
+    background-color: #73295c; /* Cor de fundo vermelha */
+    font-size: larger;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border: 2px solid rgb(0, 0, 0); /* Borda da caixa */
+    border-radius: 5px;
+    color: #ffffff; /* Cor do texto */
+    padding: 15px; /* Espaçamento interno */
+    text-align: center; /* Alinhamento do texto */
+    z-index: 9999; /* Para garantir que o aviso esteja sempre na frente de outros*/
+}
+
+.aviso.ativo {
+    display: block; /* Exibindo o aviso quando estiver ativo */
+}
