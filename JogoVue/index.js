@@ -1,3 +1,34 @@
+const ComponenteLogin ={
+    template: `
+        <div class="container">
+            <div class="componente1">
+                <h1>LOGIN</h1>
+                <label>Email</label>
+                <input placeholder="Email" type="email"></input><br><br>
+                <label>Senha</label>
+                <input placeholder="Senha" type="password"></input><br><br>
+                <button @click="login" class="botaoLogin">Entrar</button><br><br>
+                <button @click="$emit('cadastro')">Cadastre-se</button>
+            </div>
+        </div>
+    `
+}
+const ComponenteCadastro ={
+    template: `
+        <div class="componente2">
+            <h1>Cadastre-se</h1>
+            <label>Nome*</label>
+            <input placeholder="Nome" type="text"></input><br><br>
+            <label>Email*</label>
+            <input placeholder="Email" type="email"></input><br><br>
+            <label>Senha*</label>
+            <input placeholder="Senha" type="password"></input><br><br>
+            <button @click="$emit('cadastro')">Cadastrar</button>
+        </div>
+    `
+}
+
+
 const { createApp } = Vue
 
 createApp({
@@ -6,7 +37,8 @@ createApp({
             heroi: { vida: 100 },
             vilao: { vida: 100 },
             registroAcoes: [],
-            aviso: ''
+            aviso: '',
+            componenteAtual: "ComponenteLogin"
         }
     },
     methods: {
@@ -17,11 +49,27 @@ createApp({
                 this.registroAcoes.push("Herói atacou. Vida do vilão: " + this.vilao.vida);
                 this.acaoVilao();
             } else {
-                console.log("Vilão atacou");
-                this.heroi.vida -= 10;
+                this.heroi.vida -= 15;
                 this.registroAcoes.push("Vilão atacou. Vida do herói: " + this.heroi.vida);
             }
             this.verificarVitoria();
+        },
+        async atualizarVidaNoBancoDeDados(vidaHeroi, vidaVilao) {
+            try {
+                const response = await fetch(`${API_URL}/atualizarVida`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ vidaHeroi, vidaVilao })
+                });
+                if (!response.ok) {
+                    throw new Error('Erro ao atualizar a vida no banco de dados.');
+                }
+                console.log('Vida do herói e do vilão atualizada com sucesso.');
+            } catch (error) {
+                console.error('Erro ao atualizar a vida no banco de dados:', error);
+            }
         },
         defender(isHeroi) {
             this.acaoVilao();
@@ -29,10 +77,9 @@ createApp({
         usarPocao(isHeroi) {
             if (isHeroi) {
                 this.heroi.vida += 10;
-                if (this.heroi.vida > 100) this.heroi.vida = 100;
-                this.registroAcoes.push("Herói usou poção. Vida do herói: " + this.heroi.vida);
+                this.atualizarVidaNoBancoDeDados(this.heroi.vida, this.vilao.vida);
                 this.acaoVilao();
-            }
+            } 
         },
         correr(isHeroi) {
             this.acaoVilao();
@@ -54,6 +101,13 @@ createApp({
                 document.querySelectorAll('.acoes button').forEach(button => {
                     button.disabled = true;});
             }
+        },
+        alterarComponentes() {
+            this.componenteAtual = (this.componenteAtual === "ComponenteLogin") ? "ComponenteCadastro" : "ComponenteLogin"
         }
+    },
+     components: {
+        ComponenteLogin,
+        ComponenteCadastro
     }    
 }).mount("#app");

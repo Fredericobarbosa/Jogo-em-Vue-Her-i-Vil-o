@@ -1,47 +1,19 @@
 <!DOCTYPE html>
-<html lang="pt"  id="fundo">
+<html lang="pt" id="fundo">
 <head>
     <meta charset="UTF-8">
-    <title>Prova - Herói e Vilão</title>
+    <title>Login</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>
-<body>
+<body class="login">
 <div id="app">
-    <div class="personagemHeroi" >
-        <div class="barra-vida" :style="{width: heroi.vida + '%'}">{{ heroi.vida }}</div>
-        <div class="sprite">
-            <img src="img/Gohan01.webp" alt="Imagem do Gohan " class="sprite">
-        </div>
-        <h1>GOHAN</h1>
-        <div class="acoes">
-            <button @click="atacar(true)" >Atacar</button>
-            <button @click="defender(true)">Defender</button>
-            <button @click="usarPocao(true)" >Usar Poção</button>
-            <button @click="correr(true)">Correr</button>
-        </div>
-    </div>
-    <div class="personagemVilao " >
-        <div class="barra-vida" :style="{width: vilao.vida + '%'}">{{ vilao.vida }}</div>
-        <div class="sprite">
-            <img src="img/Cell.jpg" alt="Imagem do CELL " class="sprite">
-        </div>
-        <h1>CELL</h1>
-    </div>
-
-    <div class="registro-acoes">
-        <h2>Registro de Ações:</h2>
-        <ul>
-            <li v-for="(acao, index) in registroAcoes" :key="index">
-                {{ acao }}
-            </li>
-        </ul>
-    </div>
-
-    <!-- Adicionando a seção para exibir o aviso -->
-    <div class="aviso" v-if="aviso">{{ aviso }}</div>
+    
+    <transition name="fade" mode="out-in">
+        <component :is="componenteAtual" @cadastro="alterarComponentes"></component>
+    </transition><br>
+   
 </div>
 </body>
 </html>
-
 <script src="index.js"></script>
