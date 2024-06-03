@@ -12,10 +12,12 @@
             <div class="personagem">
                 <h2>Herói</h2>
                 <div>Vida: {{ heroiVida }}%</div>
+                <div>Ação: {{ acaoHeroi }}</div>
             </div>
             <div class="personagem">
                 <h2>Vilão</h2>
                 <div>Vida: {{ vilaoVida }}%</div>
+                <div>Ação: {{ acaoVilao }}</div>
             </div>
         </div>
     </div>
@@ -25,7 +27,9 @@
             el: '#app',
             data: {
                 heroiVida: '',
-                vilaoVida: ''
+                vilaoVida: '',
+                acaoHeroi: '',
+                acaoVilao: ''
             },
             mounted() {
                 this.fetchCharacterData();
@@ -37,6 +41,8 @@
                         const data = await response.json();
                         this.heroiVida = data.heroi.Vida;
                         this.vilaoVida = data.vilao.Vida;
+                        this.acaoHeroi = data.heroi.Acao;
+                        this.acaoVilao = data.vilao.Acao;
                     } catch (error) {
                         console.error('Erro ao buscar dados dos personagens:', error);
                     }
