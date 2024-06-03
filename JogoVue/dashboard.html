@@ -37,7 +37,7 @@
             methods: {
                 async fetchCharacterData() {
                     try {
-                        const response = await fetch('http://localhost:3000/characters'); // Substitua pela sua rota da API
+                        const response = await fetch('https://jogo-em-vue-her-i-vil-o.onrender.com/characters'); // Substitua pela sua rota da API
                         const data = await response.json();
                         this.heroiVida = data.heroi.Vida;
                         this.vilaoVida = data.vilao.Vida;

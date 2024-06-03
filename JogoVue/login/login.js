@@ -94,7 +94,7 @@ const ComponenteCadastro = {
 };
 
 const { createApp } = Vue
-const API_URL = 'http://localhost:3000';
+const API_URL = 'https://jogo-em-vue-her-i-vil-o.onrender.com/'; //'http://localhost:3000';
 
 createApp({
     data() {
