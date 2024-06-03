@@ -25,7 +25,7 @@
 ### <a href="https://www.netlify.com/">Netlify</a> (para a hospedagem do jogo);
 ---
 ## Link da jogo 🔗:
-### https://jogodbzvue.netlify.app/
+### https://jogo-em-vue-her-i-vil-o.onrender.com/
 ----
 ##  Descrição final🗒️:
 ### O projeto desse jogo foi desenvolvido como parte de um trabalho acadêmico envolvendo a disciplina de "Desenvolvimento Web II" e "Banco de Dados Relacional".
