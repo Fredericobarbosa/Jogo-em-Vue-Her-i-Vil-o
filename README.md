@@ -22,7 +22,7 @@
 ### VUE.JS
 ### NODE.JS
 ### <a href="https://azure.microsoft.com/pt-br/get-started/azure-portal">Microsoft Azure</a> (para a hospedagem do banco de dados) 
-### <a href="https://www.netlify.com/">Netlify</a> (para a hospedagem do jogo);
+### <a href="https://render.com/">Render</a> (para a hospedagem do jogo);
 ---
 ## Link da jogo 🔗:
 ### https://jogo-em-vue-her-i-vil-o.onrender.com/
