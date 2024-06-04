@@ -26,7 +26,7 @@ const ComponenteLogin ={
         },
         async validarUsuario(email, senha) {
             try {
-                const response = await fetch(`${API_URL}/validar_usuario`, {
+                const response = await fetch(`${API_URL}validar_usuario`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -72,7 +72,7 @@ const ComponenteCadastro = {
             this.email = email.trim()
             this.senha = senha.trim()
             try {
-                const response = await fetch(`${API_URL}/cadastrar_usuario`, {
+                const response = await fetch(`${API_URL}cadastrar_usuario`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -94,7 +94,7 @@ const ComponenteCadastro = {
 };
 
 const { createApp } = Vue
-const API_URL = 'https://jogo-em-vue-her-i-vil-o.onrender.com'; //'http://localhost:3000';
+const API_URL = 'https://jogo-em-vue-her-i-vil-o.onrender.com/'; //'http://localhost:3000';
 
 createApp({
     data() {

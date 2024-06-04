@@ -1,5 +1,5 @@
 const { createApp } = Vue
-const API_URL = 'https://jogo-em-vue-her-i-vil-o.onrender.com'; //'http://localhost:3000';
+const API_URL = 'https://jogo-em-vue-her-i-vil-o.onrender.com/'; //'http://localhost:3000';
 
 createApp({
     data() {
@@ -85,7 +85,7 @@ createApp({
         },
         async atualizarVidaNoBancoDeDados(vidaHeroi, vidaVilao, acaoHeroi, acaoVilao) {
             try {
-                const response = await fetch(`${API_URL}/atualizar_vida`, {
+                const response = await fetch(`${API_URL}atualizar_vida`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
